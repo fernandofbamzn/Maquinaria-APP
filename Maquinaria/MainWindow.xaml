@@ -1,8 +1,64 @@
 ﻿<Window x:Class="MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <DataGrid Name="datos" VerticalAlignment="Top" ItemsSource="{Binding}"/>
-    </Grid>
+    Title="Maquinaria" Height="768" Width="1024">
+    <WrapPanel>
+        <!--Seccion de Personas-->
+        <Border BorderBrush="Black" BorderThickness="2" Margin="2">
+            <StackPanel Name="pnlPersonas" Width="250" Height="100" Margin="10">
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Text="PERSONAS" ></TextBlock>
+                </StackPanel>
+
+                <DockPanel Margin="5" >
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+                        <Button Name="cliConsultar" Content="Consultar"></Button>
+                        <Button Name="cliAdd" Content="Añadir"></Button>
+                    </StackPanel>
+                    <TextBlock Name="cliCantidad" Margin="0,0,15,0" Text="0" DockPanel.Dock="Right"></TextBlock>
+                    <TextBlock Text="Clientes" Margin="15,0,0,0"></TextBlock>
+
+                </DockPanel>
+
+                <DockPanel Margin="5" >
+                    <StackPanel Margin="0,0,0,0" Orientation="Horizontal" DockPanel.Dock="Right">
+                        <Button Name="provConsultar" Content="Consultar"></Button>
+                        <Button Name="provAdd" Content="Añadir"></Button>
+                    </StackPanel>
+                    <TextBlock Name="provCantidad" Margin="0,0,15,0" Text="0" DockPanel.Dock="Right"></TextBlock>
+                    <TextBlock Text="Proveedores"  Margin="15,0,0,0"></TextBlock>
+
+                </DockPanel>
+            </StackPanel>
+        </Border>
+        <!--Seccion de Máquinas-->
+        <Border BorderBrush="Black" BorderThickness="2" Margin="2">
+            <StackPanel Name="pnlMaquinas" Width="250" Height="100" Margin="10">
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Text="MÁQUINAS" ></TextBlock>
+                </StackPanel>
+
+                <DockPanel Margin="5" >
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+                        <Button Name="modConsultar" Content="Consultar"></Button>
+                        <Button Name="modAdd" Content="Añadir"></Button>
+                    </StackPanel>
+                    <TextBlock Name="modCantidad" Margin="0,0,15,0" Text="0" DockPanel.Dock="Right"></TextBlock>
+                    <TextBlock Text="Modelos" Margin="15,0,0,0"></TextBlock>
+
+                </DockPanel>
+
+                <DockPanel Margin="5" >
+                    <StackPanel Margin="0,0,0,0" Orientation="Horizontal" DockPanel.Dock="Right">
+                        <Button Name="maqConsultar" Content="Consultar"></Button>
+                        <Button Name="maqAdd" Content="Añadir"></Button>
+                    </StackPanel>
+                    <TextBlock Name="maqCantidad" Margin="0,0,15,0" Text="0" DockPanel.Dock="Right"></TextBlock>
+                    <TextBlock Text="Máquinas Físicas"  Margin="15,0,0,0"></TextBlock>
+
+                </DockPanel>
+            </StackPanel>
+        </Border>
+        
+    </WrapPanel>
 </Window>

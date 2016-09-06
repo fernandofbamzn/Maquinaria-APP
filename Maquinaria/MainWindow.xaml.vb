@@ -8,7 +8,6 @@
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
         bd = New clsBaseDatos
 
-        datos.DataContext = bd.AbreDataTable("SELECT * FROM TipoContacto ")
     End Sub
 
     Private Sub MainWindow_Closing(sender As Object, e As ComponentModel.CancelEventArgs) Handles Me.Closing
