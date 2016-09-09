@@ -1,9 +1,17 @@
 ﻿Imports System.Data
 Imports MySql.Data.MySqlClient
 Public Class clsBaseDatos
+
     Private cnn As MySqlConnection
     Private cmd As MySqlCommand
     Private adaptador As MySqlDataAdapter
+
+    Public ReadOnly Property isNothing() As Boolean
+        Get
+            Return cnn Is Nothing
+        End Get
+
+    End Property
 
     Private Function ValorBD(ByVal valor As Object) As String
         'Funcion que comprueba si un campo tiene valor NULL 
@@ -26,18 +34,18 @@ Public Class clsBaseDatos
                 Case MsgBoxResult.No
                     abreBaseDatos(False)
                 Case MsgBoxResult.Cancel
-                    My.Application.Shutdown()
+                    Me.Close()
+                    Exit Sub
             End Select
 
 
         Catch ex As Exception
             MsgBox("Error al conectar con la Base de datos." & vbCrLf & ex.Message & vbCrLf & "Consulta con Fernando.")
-            cnn = Nothing
-            My.Application.Shutdown()
+            Me.Close()
         End Try
 
     End Sub
-    Public Sub abreBaseDatos(ByVal isLocal As Boolean)
+    Private Sub abreBaseDatos(ByVal isLocal As Boolean)
         If isLocal Then
             cnn = New MySqlConnection(datosConexion.CadenaConexion(datosConexion.conexion.Local))
         Else
@@ -47,13 +55,14 @@ Public Class clsBaseDatos
         cmd = New MySqlCommand("", cnn)
         adaptador = New MySqlDataAdapter(cmd)
     End Sub
-    Public Sub close()
+    Public Sub Close()
         If Not cnn Is Nothing Then
             cnn.Close()
-            cnn = Nothing
-            cmd = Nothing
-            adaptador = Nothing
         End If
+        cnn = Nothing
+        cmd = Nothing
+        adaptador = Nothing
+        GC.SuppressFinalize(Me)
     End Sub
 
     Public Function AbreDataTable(ByVal Sql As String) As DataTable

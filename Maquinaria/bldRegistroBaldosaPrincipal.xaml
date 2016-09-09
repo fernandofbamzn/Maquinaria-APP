@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="bldRegistroBaldosaPrincipal"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignWidth="250
+             ">
+    <DockPanel Margin="5" >
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+            <Button Name="btnConsultar" Content="Consultar"></Button>
+            <Button Name="btnAdd" Content="Añadir"></Button>
+        </StackPanel>
+        <TextBlock Name="textoCantidad" Margin="0,0,15,0" Text="0" DockPanel.Dock="Right"></TextBlock>
+        <TextBlock Name="textoIdentificador" Text="Clientes" Margin="15,0,0,0"></TextBlock>
+
+    </DockPanel>
+</UserControl>
